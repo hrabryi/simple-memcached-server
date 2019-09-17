@@ -26,7 +26,7 @@ class Cache(dict):
         Get k,v from database and return dictionary.
         :return: dict
         """
-        conn = sqlite3.connect('database.sqlite')
+        conn = sqlite3.connect(db_file_name)
         with conn:
             data = conn.execute('SELECT key, value, exptime, bytes  FROM cache;')
             all_rows = data.fetchall()
